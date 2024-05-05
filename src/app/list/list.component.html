@@ -1,0 +1,32 @@
+<div class="header_input">
+    <form action="">
+        <input type="text" [(ngModel)]="str">
+        <button class="header__btn"
+        (click)="add(str)"
+        >Save</button>
+    </form>
+</div>
+<br>
+<div>
+@for(arr of array; track $index){
+    <form class="list" action="">
+        <ul class="list_item"> 
+          
+            @if(valid){
+                <ol class="str_list">{{arr}}</ol>
+                <button (click)="valid=!valid">
+                    выполнено
+                </button>
+            }@else {
+                <del><ol class="str_list" [style.color]="redColor">{{arr}}</ol></del>
+                <button (click)="valid=!valid">
+                    вернуть задачу
+                </button>
+            }
+            <button (click)="removeAffairs(str)">Delete</button>
+            <button (click)="renameList($index,str)">rename</button>
+        </ul>
+    </form>   
+}
+</div>
+<app-do-list></app-do-list>
